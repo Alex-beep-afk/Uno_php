@@ -1,6 +1,6 @@
 <?php
 try {
-    $dsn = "mysql:host=dataBase;dbname=uno_games;charset=utf8mb4";
+    $dsn = "mysql:host=dataBase;dbname=Uno_game;charset=utf8mb4";
 
     $db = new PDO(
         $dsn,
