@@ -29,6 +29,18 @@ function findOneByPseudo(string $pseudo): array|bool
     // TODO Creer une gestion d'erreur si on n'arrive pas à trouver l'utilisateur
 
 }
+function findOneById(int $id): array|bool{
+    global $db;
+    try {
+        $query = "SELECT * FROM joueurs WHERE id = :id";
+        $sql = $db -> prepare($query);
+        $sql -> execute(['id'=> $id]);
+        $user = $sql ->fetch();
+        return $user;
+    }catch(Exception $e) {
+        return false;
+    }
+}
 function createUser(array $user): bool
 {
 
@@ -52,4 +64,5 @@ function createUser(array $user): bool
 
 
 }
+
 

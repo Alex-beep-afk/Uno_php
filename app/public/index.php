@@ -19,14 +19,18 @@ $users = findAllUsers();
     <?php require_once '/app/public/Layout/_header.php'; ?>
 
     <main
-        class="flex items-center justify-center h-full bg-[url('/assets/images/Uno_bg.jpg')] bg-contain bg-center bg-no-repeat">
+        class="flex items-center justify-center h-full bg-[url('/assets/images/Uno_bg.webp')] bg-contain bg-center bg-no-repeat">
         <div class="flex flex-wrap gap-5 items-center justify-center">
             <?php foreach ($users as $user): ?>
                 <div
                     class="flex flex-col justify-center items-center bg-slate-200/50 border-2 border-slate-400 w-50 backdrop-blur-sm">
-                    <h3><?= $user['nom'] ?></h3>
-                    <h3><?= $user['pseudo'] ?></h3>
-                    <h3><?= $user['scoreTotal'] ?></h3>
+                    <h3><?= $user['nom'] ?> <?= $user['prenom']?></h3>
+                    <h3>Pseudo : <?=$user['pseudo'] ?></h3>
+                    <h3>Score total : <?=$user['scoreTotal'] ?></h3>
+                    <?php if (!empty($user['imgProfil'])): ?>
+                        <img src = <?= $user['imgProfil']?>  >
+                    <?php endif; ?> 
+
                 </div>
             <?php endforeach; ?>
         </div>

@@ -15,27 +15,21 @@ session_start();
 
 <body class="h-screen flex flex-col">
     <?php require_once '/app/public/Layout/_header.php'; ?>
-    <?php if ($_SESSION['messages']['success']): ?>
-        <div class="bg-green-500 text-center p-5">
-            <?= $_SESSION['messages']['success'] ?>
-        </div>
-    <?php endif; ?>
+    <?php require_once '/app/public/Layout/_messages.php';?>
 
     <main class="flex flex-col items-center justify-center h-full">
 
-        <div class="flex gap-5">
-            <div class="text-center bg-green-500 rounded-lg p-2">
-                <p>Créer un joueur</p>
-                <a class="text-center" href="/admin/Players/createPlayer.php">Créer</a>
+        <div class="flex gap-5 h-2/3 w-1/2">
+            <div class="bg-[url('/assets/images/New_dresseur.webp')] bg-center bg-contain bg-no-repeat 
+            text-center rounded-lg p-3 border-2 border-slate-400 w-1/2">
+                <a class="bg-green-500/70 backdrop-blur-sm rounded-lg p-2" href="/admin/Players/createPlayer.php">Créer un joueur</a>
             </div>
-            <div class="text-center bg-yellow-500 rounded-lg p-2">
-                <p>Modifier un joueur</p>
-                <a class="text-center" href="/modifyPlayer.php">Modifier</a>
+
+            <div class="bg-[url('/assets/images/Liste_bg.webp')] bg-center bg-contain bg-no-repeat text-center
+            border-2 border-slate-400 rounded-lg p-3 w-1/2">
+                <a class="bg-yellow-500/70 backdrop-blur-sm rounded-lg p-2" href="/admin/Players/PlayersList.php">Liste des joueurs</a>
             </div>
-            <div class="text-center bg-red-500 rounded-lg p-2">
-                <p>Supprimer un joueur</p>
-                <a class="text-center" href="">Supprimer</a>
-            </div>
+
         </div>
     </main>
     <?php require_once '/app/public/Layout/_footer.php'; ?>

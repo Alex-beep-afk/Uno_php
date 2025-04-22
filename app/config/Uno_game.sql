@@ -1,5 +1,6 @@
 DROP DATABASE IF EXISTS Uno_game;
 CREATE DATABASE Uno_game;
+USE Uno_game;
 CREATE TABLE `joueurs` (
   `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `pseudo` varchar(255),

@@ -1,8 +1,11 @@
 <?php
 require_once '/app/config/database.php';
 require_once '/app/Requests/users.php';
+require_once '/app/config/utils.php';
 
 session_start();
+checkAdmin();
+
 
 if (!empty($_POST)) {
     if (!empty($_POST['pseudo']) || !empty($_POST['password'])) {
@@ -15,14 +18,18 @@ if (!empty($_POST)) {
             header('Location: /admin/Players/createPlayer.php');
             exit(302);
         }
+        
         $user = [
             'pseudo' => $_POST['pseudo'],
             'password' => $_POST['password'],
             'nom' => $_POST['nom'],
             'prenom' => $_POST['prenom'],
-            'scoreTotal' => !$_POST['scoreTotal'] ? (int) $_POST['scoreTotal'] : 0,
+            'scoreTotal' => (int)($_POST['scoreTotal'] ?? 0),
+            // On transforme en int la valeur de scoreTotal si elle est définit ou on prends 0
             'imgProfil' => $_POST['imgProfil']
+        
         ];
+       
         if (createUser($user)) {
             $_SESSION['messages']['success'] = 'Le joueur a bien ete créé';
 
@@ -30,6 +37,8 @@ if (!empty($_POST)) {
             $_SESSION['messages']['danger'] = 'Le joueur n\'a pas pu etre créé';
         }
 
+    }else{
+        $_SESSION['messages']['warning'] = 'Veuillez remplir les champs obligatoires';
     }
 }
 
@@ -47,16 +56,7 @@ if (!empty($_POST)) {
 
 <body class="h-screen flex flex-col">
     <?php require_once '/app/public/Layout/_header.php'; ?>
-    <?php if ($_SESSION['messages']['success']): ?>
-        <div class="bg-green-500 text-center p-5">
-            <?= $_SESSION['messages']['success'] ?>
-        </div>
-    <?php endif; ?>
-    <?php if (!empty($_SESSION['messages']['danger'])): ?>
-        <div class="bg-red-500 text-center p-5">
-            <?= $_SESSION['messages']['danger'] ?>
-        </div>
-    <?php endif; ?>
+    <?php require_once '/app/public/Layout/_messages.php';?>
 
     <main class="h-full">
         <form class="flex flex-col items-center justify-center gap-2 p-2" action="" method="post">
