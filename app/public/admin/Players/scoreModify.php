@@ -58,6 +58,7 @@ if (!empty($user) && (!empty($_POST))) {
                     value="<?= $user['scoreTotal'] ?>">
 
                 <button class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" type="submit">Modifier le score</button>
+                <a class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600 text-center" href="/admin/Players/playersList.php">Retour</a>
             </form>
         </div>
     </main>

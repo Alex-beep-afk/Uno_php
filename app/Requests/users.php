@@ -64,5 +64,35 @@ function createUser(array $user): bool
 
 
 }
+function updateUser(array $user): bool{
+    global $db;
 
+    $query = "UPDATE joueurs SET pseudo = :pseudo, scoreTotal = :scoreTotal , imgProfil = :imgProfil , nom = :nom , prenom = :prenom ";
+    $params = [
+        'pseudo'=>$user['pseudo'],
+        'scoreTotal' => $user['scoreTotal'],
+        'imgProfil' => $user['imgProfil'],
+        'nom' => $user['nom'],
+        'prenom'=> $user['prenom'],
+        'id' => $user['id']
+    ];
+
+    if($user['password'] !== ''){
+        $query = $query . " , password = :password ";
+        $params['password'] = $user['password'];
+    }
+
+    $query = $query . "WHERE id = :id";
+
+    try{
+        $sql = $db->prepare($query);
+        $sql->execute($params);
+        return true;
+    }catch(Exception $e){
+        var_dump($query);
+        return false;
+
+    }
+    
+}
 

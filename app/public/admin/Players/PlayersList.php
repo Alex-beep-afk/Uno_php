@@ -29,9 +29,9 @@ $users = findAllUsers();
     <?php require_once '/app/public/Layout/_header.php'; ?>
     <?php require_once '/app/public/Layout/_messages.php'; ?>
     <main class="h-full">
-        <ul class="mt-2 ">
+        <ul class="mt-2 flex flex-col items-center">
             <?php foreach ($users as $user): ?>
-                <li class="w-5/6 border-1 mx-auto flex justify-between p-2 mb-2 rounded-lg 
+                <li class="w-5/6 border-1 flex justify-between p-2 mb-2 rounded-lg 
                 bg-slate-200/50 border-slate-400 backdrop-blur-sm drop-shadow-md"><?= $user['pseudo'] ?>
                     (<?= $user['prenom'] . ' ' . $user['nom'] ?>)
                     <span>Score : <span contenteditable="true" data-user="1"
@@ -44,7 +44,9 @@ $users = findAllUsers();
                     </span>
                 </li>
             <?php endforeach; ?>
+            <a class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600 " href="/admin/index.php">Retour</a>
         </ul>
+        
     </main>
     <?php require_once '/app/public/Layout/_footer.php'; ?>
 

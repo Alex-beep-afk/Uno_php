@@ -1,8 +1,11 @@
 <?php
+
 require_once '/app/config/database.php';
 require_once '/app/Requests/users.php';
 require_once '/app/Requests/score.php';
+session_start();
 $users = findAllUsers();
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +25,7 @@ $users = findAllUsers();
         class="flex items-center justify-center h-full bg-[url('/assets/images/Uno_bg.webp')] bg-contain bg-center bg-no-repeat">
         <div class="flex flex-wrap gap-5 items-center justify-center">
             <?php foreach ($users as $user): ?>
+                <?php if($user['isAdmin'] == 0): ?>
                 <div
                     class="flex flex-col justify-center items-center bg-slate-200/50 border-2 border-slate-400 w-50 backdrop-blur-sm">
                     <h3><?= $user['nom'] ?> <?= $user['prenom']?></h3>
@@ -30,8 +34,8 @@ $users = findAllUsers();
                     <?php if (!empty($user['imgProfil'])): ?>
                         <img src = <?= $user['imgProfil']?>  >
                     <?php endif; ?> 
-
                 </div>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
 

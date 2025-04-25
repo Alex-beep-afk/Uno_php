@@ -26,7 +26,7 @@ if (!empty($_POST)) {
             'prenom' => $_POST['prenom'],
             'scoreTotal' => (int)($_POST['scoreTotal'] ?? 0),
             // On transforme en int la valeur de scoreTotal si elle est définit ou on prends 0
-            'imgProfil' => $_POST['imgProfil']
+            'imgProfil' => !empty($_POST['imgProfil']) ? $_POST['imgProfil'] : './assets/images/missingno.webp'
         
         ];
        
@@ -79,6 +79,7 @@ if (!empty($_POST)) {
             <input class="border-2 rounded-md" type="text" name="prenom" id="prenom">
 
             <button class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" type="submit">Submit</button>
+            <a class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" href="/admin/index.php">Retour</a>
         </form>
 
     </main>
