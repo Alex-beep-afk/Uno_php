@@ -19,5 +19,18 @@ function updateScoreById(int $id , int $scoreTotal) :bool {
     }
     
 }
+function findScoreByid(int $id) :int|bool{
+    global $db;
+    try{
+        $query = "SELECT scoreTotal FROM joueurs WHERE id = :id";
+        $sql = $db -> prepare($query);
+        $sql -> execute([
+            'id'=>$id
+        ]);
+        return $sql->fetchColumn();
+    }catch(Exception $e){
+        return false;
+    }
+}
 
 ?>

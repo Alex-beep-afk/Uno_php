@@ -1,5 +1,8 @@
 <?php
+require_once '/app/config/utils.php';
+
 session_start();
+checkAdmin();
 
 
 ?>

@@ -95,4 +95,25 @@ function updateUser(array $user): bool{
     }
     
 }
+function deleteUser(int $id): bool{
+    global $db;
+    try{
+        $query = "DELETE FROM joueurs WHERE id = :id";
+        $sql = $db->prepare($query);
+        $sql->execute(['id'=>$id]);
+        return true;
+    }catch(Exception $e){
+        return false;
+    }
+}
+function findAllUsersByScore(): array
+{
+    global $db;
+    return $db->query('SELECT * FROM joueurs ORDER BY scoreTotal DESC')->fetchAll();
+}
+function findAllUsersByScoreLimit(int $limit): array
+{
+    global $db;
+    return $db->query('SELECT * FROM joueurs ORDER BY scoreTotal DESC LIMIT ' . $limit)->fetchAll();
+}
 

@@ -28,6 +28,9 @@ if (!empty($_POST)) {
         if($_POST['password'] !== ''){
             $_POST['password'] = password_hash($_POST['password'], PASSWORD_ARGON2I);
         }
+        if($_POST['scoreTotal'] === '' || $_POST['scoreTotal'] < 0){
+            $_POST['scoreTotal'] = 0;
+        }
     // Si le nouveau pseudo est differrent de l'ancien mais que je le trouve en BDD je redirige
     if($_POST['pseudo'] !== $user['pseudo'] && findOneByPseudo($_POST['pseudo'])){
         $_SESSION['message']['danger'] = 'ce pseudo est déja pris';

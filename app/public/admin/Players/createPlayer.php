@@ -78,7 +78,7 @@ if (!empty($_POST)) {
             <label for="prenom">Prenom</label>
             <input class="border-2 rounded-md" type="text" name="prenom" id="prenom">
 
-            <button class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" type="submit">Submit</button>
+            <button class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" type="submit">Créer un joueur</button>
             <a class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" href="/admin/index.php">Retour</a>
         </form>
 
