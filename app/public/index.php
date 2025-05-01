@@ -61,3 +61,5 @@ $users = findAllUsersByScoreLimit(3);
 </body>
 
 </html>
+
+<!-- creer les div avec la classe display none -->
