@@ -5,7 +5,7 @@
 
 <header class="flex-none justify-between bg-slate-200 p-5 relative position-sticky">
     <div class="flex justify-between items-center">
-        <a href="/"><img class="h-10" src="./assets/images/BlasonDWWM2024.png" alt="logo"></a>
+        <a href="/"><img class="h-10" src="/assets/images/BlasonDWWM2024.png" alt="logo"></a>
         <?php if (!empty($_SESSION['user']) && $_SESSION['user']['isAdmin'] === 1): ?>
             <h1>Espace admin</h1>
         <?php else: ?>

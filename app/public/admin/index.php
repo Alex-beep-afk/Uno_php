@@ -32,6 +32,9 @@ checkAdmin();
             border-2 border-slate-400 rounded-lg p-3 w-1/2">
                 <a class="bg-yellow-500/70 backdrop-blur-sm rounded-lg p-2" href="/admin/Players/PlayersList.php">Liste des joueurs</a>
             </div>
+            <div>
+                <a class="bg-red-500" href="/admin/Galerie/index.php">Galerie</a>
+            </div>
 
         </div>
     </main>

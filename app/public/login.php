@@ -5,6 +5,7 @@ require_once '/app/Requests/users.php';
 session_start();
 
 
+
 if (!empty($_POST)) {
     $pseudo = strip_tags($_POST['pseudo']) ?? '';
     $password = strip_tags($_POST['password']) ?? '';
@@ -40,7 +41,6 @@ if (!empty($_POST)) {
                 <input class="p-2 bg-slate-200 rounded-lg" name="pseudo" type="text" placeholder="Pseudo">
                 <label for="password">Password</label>
                 <input class="p-2 bg-slate-200 rounded-lg" name="password" type="password" placeholder="Password">
-                <input type="text" name="token_csrf" value="<?= $_SESSION['token_csrf'] ?>" hidden>
                 <button class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" type="submit">Se connecter</button>
             </form>
         </div>
