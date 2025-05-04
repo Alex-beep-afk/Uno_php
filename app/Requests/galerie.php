@@ -17,3 +17,50 @@ function uploadFile(string $file): bool{
         return false;
     }
 }
+
+function allImages(): array{
+    global $db;
+    try{
+        $query = "SELECT * FROM galerie";
+        $sql = $db -> prepare($query);
+        $sql -> execute();
+        return $sql -> fetchAll();
+    }catch(Exception $e){
+        return [];
+    }
+}
+function oneImage(int $id): array|bool{
+    global $db;
+    try{
+        $query = "SELECT * FROM galerie WHERE id = :id";
+        $sql = $db -> prepare($query);
+        $sql -> execute([
+            'id'=>$id
+        ]);
+        return $sql -> fetch();
+
+    }catch(Exception $e){   
+        return false;
+    }
+}
+function deleteImage(int $id): bool{
+    global $db;
+    try{
+        $query = "DELETE FROM galerie WHERE id = :id";
+        $sql = $db -> prepare($query);
+        $sql -> execute([
+            'id'=>$id
+        ]);
+        return true;
+    }catch(Exception $e){
+        return false;
+    }
+}
+function deleteImageFile(string $file): bool{
+    $filePath = '/app/public/admin/Galerie/uploads/' . $file;
+    if (file_exists($filePath)) {
+        unlink($filePath);
+        return true;
+    }
+    return false;
+}

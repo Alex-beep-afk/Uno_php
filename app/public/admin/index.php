@@ -13,7 +13,8 @@ checkAdmin();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uno Game - Admin</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="h-screen flex flex-col">

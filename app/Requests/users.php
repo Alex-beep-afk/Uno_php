@@ -4,11 +4,6 @@ function findAllUsers(): array
 {
     global $db;
 
-    //  $query = "SELECT * FROM users";
-
-    //  $sql = $db->query($query);
-
-    //  return $sql->fetchAll();
     return $db
         ->query('SELECT * FROM joueurs')
         ->fetchAll();
@@ -26,7 +21,6 @@ function findOneByPseudo(string $pseudo): array|bool
     } catch (Exception $e) {
         return false;
     }
-    // TODO Creer une gestion d'erreur si on n'arrive pas à trouver l'utilisateur
 
 }
 function findOneById(int $id): array|bool{

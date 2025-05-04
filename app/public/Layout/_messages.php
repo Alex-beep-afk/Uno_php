@@ -17,7 +17,7 @@
     // Si $type n'existe pas alors la valeur par defaut de $style = 'bg-gray-100 text-gray-800 border-gray-300'
     ?>
 
-    <div class ="text-center border-l-4 p-4 my-2 rounded-lg shadow-sm <?= $style; ?>">
+    <div class ="western text-center border-l-4 p-4 my-2 rounded-lg shadow-sm <?= $style; ?>">
         <!-- En dehors de mon style de base , on rajoute $style au css -->
         <p class="font-medium"><?= htmlspecialchars($message); ?></p>
         <!-- Dans le <p> on affiche le message en utilisant le htmlspecialchars qui convertit les caractéres spéciaux HTML en entités HTML pour eviter les attaques XSS -->

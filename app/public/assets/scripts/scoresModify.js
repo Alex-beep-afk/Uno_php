@@ -16,8 +16,6 @@ scoresModifyForm.forEach((span) => {
             return;
         }
 
-        console.log(user, score);
-
         const reponse = await fetch(`/admin/api/scoresMod.php`, {
             method: 'POST',
             headers: {
@@ -32,10 +30,8 @@ scoresModifyForm.forEach((span) => {
 
         if (reponse.ok) {
             const data = await reponse.json();
-            console.log(data);
         }else{
             const data = await reponse.json();
-            console.log(data);
         }
 
         
