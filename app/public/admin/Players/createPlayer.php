@@ -1,13 +1,11 @@
-<?php
-require_once '/app/config/database.php';
+<?php require_once '/app/config/database.php';
 require_once '/app/Requests/users.php';
 require_once '/app/config/utils.php';
-
 session_start();
 checkAdmin();
-
 if (!empty($_POST)) {
-    if (!empty($_POST['pseudo']) || !empty($_POST['password'])) {
+    if
+    (!empty($_POST['pseudo']) || !empty($_POST['password'])) {
         foreach ($_POST as $key => $value) {
             $_POST[$key] = trim(strip_tags($value));
         }
@@ -87,31 +85,48 @@ if (!empty($_POST)) {
     <?php require_once '/app/public/Layout/_header.php'; ?>
     <?php require_once '/app/public/Layout/_messages.php'; ?>
 
-    <main class="h-full">
-        <form class="flex flex-col items-center justify-center gap-2 p-2" action="" method="post"
-            enctype="multipart/form-data">
-            <label for="pseudo">Pseudo</label>
-            <input class="border-2 rounded-md" type="text" name="pseudo" id="pseudo" required>
+    <main
+        class="h-full flex justify-center bg-[url(/assets/images/animated-bg-create-player.gif)] bg-cover bg-no-repeat">
+        <form
+            class="flex flex-col items-center justify-center gap-2 p-2 border-2 border-slate-600 bg-slate-100/20 backdrop-blur bg-bottom w-1/2 western m-10"
+            action="" method="post" enctype="multipart/form-data">
+            <div class="flex gap-2">
+                <div class="flex flex-col items-center">
+                    <label for="pseudo">Pseudo</label>
+                    <input class="border-2 rounded-md" type="text" name="pseudo" id="pseudo" required>
 
-            <label for="password">Password</label>
-            <input class="border-2 rounded-md" type="password" name="password" id="password" required>
+                    <label for="password">Password</label>
+                    <input class="border-2 rounded-md" type="password" name="password" id="password" required>
+                </div>
 
-            <label for="scoreTotal">Score total</label>
-            <input class="border-2 rounded-md" type="number" name="scoreTotal" id="scoreTotal">
+                <div class="flex flex-col items-center">
+                    <label for="nom">Nom</label>
+                    <input class="border-2 rounded-md" type="text" name="nom" id="nom">
 
-            <label for="imgProfil">Image de profil</label>
-            <input class="border-2 rounded-md" type="file" name="imgProfil" id="imgProfil">
+                    <label for="prenom">Prenom</label>
+                    <input class="border-2 rounded-md" type="text" name="prenom" id="prenom">
+                </div>
 
-            <label for="nom">Nom</label>
-            <input class="border-2 rounded-md" type="text" name="nom" id="nom">
+            </div>
 
-            <label for="prenom">Prenom</label>
-            <input class="border-2 rounded-md" type="text" name="prenom" id="prenom">
+            <div class="flex flex-col items-center">
+                <label for="scoreTotal">Score total</label>
+                <input class="border-2 rounded-md w-full" type="number" name="scoreTotal" id="scoreTotal">
 
-            <button class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
-                type="submit">Créer un joueur</button>
-            <a class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
-                href="/admin/index.php">Retour</a>
+                <label for="imgProfil">Image de profil</label>
+                <input class="border-2 rounded-md bg-white" type="file" name="imgProfil" id="imgProfil">
+            </div>
+
+
+
+            <div class="flex w-1/2 justify-center items-center gap-2">
+                <button class="my-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western p-2 w-full"
+                    type="submit">Créer un joueur</button>
+                <a class="my-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western text-center p-2 w-full"
+                    href="/admin/index.php">Retour</a>
+            </div>
+
+
         </form>
 
     </main>
