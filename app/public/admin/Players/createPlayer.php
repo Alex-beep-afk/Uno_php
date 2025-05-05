@@ -56,7 +56,7 @@ if (!empty($_POST)) {
             'password' => $_POST['password'],
             'nom' => $_POST['nom'],
             'prenom' => $_POST['prenom'],
-            'scoreTotal' => (int)($_POST['scoreTotal'] ?? 0),
+            'scoreTotal' => (int) ($_POST['scoreTotal'] ?? 0),
             'imgProfil' => $imgPath
         ];
 
@@ -79,15 +79,17 @@ if (!empty($_POST)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/styles/main.css">
     <title>Admin - Create Player</title>
 </head>
 
 <body class="h-screen flex flex-col">
     <?php require_once '/app/public/Layout/_header.php'; ?>
-    <?php require_once '/app/public/Layout/_messages.php';?>
+    <?php require_once '/app/public/Layout/_messages.php'; ?>
 
     <main class="h-full">
-        <form class="flex flex-col items-center justify-center gap-2 p-2" action="" method="post" enctype="multipart/form-data">
+        <form class="flex flex-col items-center justify-center gap-2 p-2" action="" method="post"
+            enctype="multipart/form-data">
             <label for="pseudo">Pseudo</label>
             <input class="border-2 rounded-md" type="text" name="pseudo" id="pseudo" required>
 
@@ -106,8 +108,10 @@ if (!empty($_POST)) {
             <label for="prenom">Prenom</label>
             <input class="border-2 rounded-md" type="text" name="prenom" id="prenom">
 
-            <button class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" type="submit">Créer un joueur</button>
-            <a class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" href="/admin/index.php">Retour</a>
+            <button class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
+                type="submit">Créer un joueur</button>
+            <a class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
+                href="/admin/index.php">Retour</a>
         </form>
 
     </main>

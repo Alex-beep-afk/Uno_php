@@ -44,6 +44,7 @@ if (!empty($user) && (!empty($_POST))) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Modifier le score</title>
+    <link rel="stylesheet" href="/assets/styles/main.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -57,8 +58,10 @@ if (!empty($user) && (!empty($_POST))) {
                 <input class="p-2 bg-slate-200 rounded-lg" name="score" type="number" placeholder="score"
                     value="<?= $user['scoreTotal'] ?>">
 
-                <button class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" type="submit">Modifier le score</button>
-                <a class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600 text-center" href="/admin/Players/playersList.php">Retour</a>
+                <button class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
+                    type="submit">Modifier le score</button>
+                <a class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
+                    href="/admin/Players/playersList.php">Retour</a>
             </form>
         </div>
     </main>

@@ -81,48 +81,59 @@ if (!empty($_POST)) {
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/styles/main.css">
     <title>Admin - Modifier Joueur</title>
 </head>
+
 <body class="h-screen flex flex-col">
     <?php require_once '/app/public/Layout/_header.php'; ?>
     <?php require_once '/app/public/Layout/_messages.php'; ?>
 
     <main class="h-full">
-        <form class="flex flex-col items-center justify-center gap-2 p-2"
-              action="" method="post" enctype="multipart/form-data">
+        <form class="flex flex-col items-center justify-center gap-2 p-2" action="" method="post"
+            enctype="multipart/form-data">
 
             <label for="pseudo">Pseudo</label>
-            <input class="border-2 rounded-md" type="text" name="pseudo" id="pseudo" value="<?= htmlspecialchars($user['pseudo']) ?>" required>
+            <input class="border-2 rounded-md" type="text" name="pseudo" id="pseudo"
+                value="<?= htmlspecialchars($user['pseudo']) ?>" required>
 
             <label for="password">Password (laisser vide pour ne pas changer)</label>
             <input class="border-2 rounded-md" type="password" name="password" id="password">
 
             <label for="scoreTotal">Score total</label>
-            <input class="border-2 rounded-md" type="number" name="scoreTotal" id="scoreTotal" value="<?= htmlspecialchars($user['scoreTotal']) ?>">
+            <input class="border-2 rounded-md" type="number" name="scoreTotal" id="scoreTotal"
+                value="<?= htmlspecialchars($user['scoreTotal']) ?>">
 
             <label for="imgProfil">Nouvel avatar (optionnel)</label>
             <input class="border-2 rounded-md" type="file" name="imgProfil" id="imgProfil" accept="image/*">
 
-            <?php if ($user['imgProfil']) : ?>
+            <?php if ($user['imgProfil']): ?>
                 <p>Avatar actuel :</p>
-                <img src="/admin/Players/avatars/<?= htmlspecialchars($user['imgProfil']) ?>" alt="Avatar" class="w-24 h-24 object-cover rounded-full">
+                <img src="/admin/Players/avatars/<?= htmlspecialchars($user['imgProfil']) ?>" alt="Avatar"
+                    class="w-24 h-24 object-cover rounded-full">
             <?php endif; ?>
 
             <label for="nom">Nom</label>
-            <input class="border-2 rounded-md" type="text" name="nom" id="nom" value="<?= htmlspecialchars($user['nom']) ?>">
+            <input class="border-2 rounded-md" type="text" name="nom" id="nom"
+                value="<?= htmlspecialchars($user['nom']) ?>">
 
             <label for="prenom">Prénom</label>
-            <input class="border-2 rounded-md" type="text" name="prenom" id="prenom" value="<?= htmlspecialchars($user['prenom']) ?>">
+            <input class="border-2 rounded-md" type="text" name="prenom" id="prenom"
+                value="<?= htmlspecialchars($user['prenom']) ?>">
 
-            <button class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" type="submit">Enregistrer</button>
-            <a class="p-2 bg-gray-400 rounded-lg hover:bg-gray-600 text-center" href="/admin/Players/playersList.php">Retour</a>
+            <button class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
+                type="submit">Enregistrer</button>
+            <a class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
+                href="/admin/Players/playersList.php">Retour</a>
         </form>
     </main>
 
     <?php require_once '/app/public/Layout/_footer.php'; ?>
 </body>
+
 </html>

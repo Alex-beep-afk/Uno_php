@@ -26,6 +26,7 @@ $_SESSION['token_csrf'] = bin2hex(random_bytes(32));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Liste des joueurs</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/styles/main.css">
     <script src="/assets/scripts/scoresModify.js" defer></script>
 </head>
 
@@ -51,19 +52,20 @@ $_SESSION['token_csrf'] = bin2hex(random_bytes(32));
                         </span>
                     </div>
 
-                    <span class="flex items-center gap-2">
+                    <span class="flex gap-2">
 
-                        <a class="bg-green-500 p-2 rounded-lg"
+                        <a class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
                             href="/admin/Players/scoreModify.php?id=<?= $user['id'] ?>">Modifier score</a>
 
-                        <a class="bg-yellow-500 p-2 rounded-lg"
+                        <a class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
                             href="/admin/Players/playerModify.php?id=<?= $user['id'] ?>">Modifier joueur</a>
 
                         <form action="/admin/Players/deletePlayer.php" method="post"
                             onsubmit="return confirm('Etes-vous sûr de vouloir supprimer ce joueur ?')">
                             <input type="text" name="token_csrf" value="<?= $_SESSION['token_csrf'] ?>" hidden>
                             <input type="text" name="id" value="<?= $user['id'] ?>" hidden>
-                            <button class="bg-red-500 p-2 rounded-lg" type="submit">Supprimer</button>
+                            <button class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
+                                type="submit">Supprimer</button>
                         </form>
                     </span>
 
@@ -71,7 +73,8 @@ $_SESSION['token_csrf'] = bin2hex(random_bytes(32));
 
                 </li>
             <?php endforeach; ?>
-            <a class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600 " href="/admin/index.php">Retour</a>
+            <a class="my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
+                href="/admin/index.php">Retour</a>
         </ul>
 
     </main>
