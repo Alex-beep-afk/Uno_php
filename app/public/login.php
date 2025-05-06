@@ -35,18 +35,20 @@ if (!empty($_POST)) {
 <body class="h-screen flex flex-col">
     <?php require_once '/app/public/Layout/_header.php'; ?>
     <?php require_once '/app/public/Layout/_messages.php'; ?>
-    <main class="h-full">
-        <div class="flex justify-center items-center h-full">
-            <form class="flex flex-col gap-2" action="" method="post">
+    <main class="h-full western bg-[url(/assets/images/bg-login.webp)] bg-cover bg-center bg-no-repeat">
+        <div class="flex justify-center items-center h-full bg-slate-200/50 backdrop-blur-sm">
+            <form class="flex flex-col gap-2 items-center" action="" method="post">
                 <label class="text-center" for="pseudo">Username</label>
                 <input class="p-2 bg-slate-200 rounded-lg" name="pseudo" type="text" placeholder="Pseudo">
                 <label for="password">Password</label>
                 <input class="p-2 bg-slate-200 rounded-lg" name="password" type="password" placeholder="Password">
-                <button class="p-2 bg-blue-400 rounded-lg hover:bg-blue-600" type="submit">Se connecter</button>
+                <button class=" flex my-5 p-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western"
+                    type="submit"><img class="w-7 h-7 mr-2" src="/assets/images/icons/icon-login.png" alt="">Se
+                    connecter</button>
             </form>
         </div>
     </main>
-    
+
     <?php require_once '/app/public/Layout/_footer.php'; ?>
 </body>
 

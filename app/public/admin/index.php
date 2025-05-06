@@ -22,7 +22,7 @@ checkAdmin();
     <?php require_once '/app/public/Layout/_messages.php'; ?>
 
     <main
-        class="flex flex-col items-center justify-center h-full bg-[url(/assets/images/animatedBG.gif)] bg-cover bg-no-repeat ">
+        class="min-h-full flex flex-col items-center justify-center bg-[url(/assets/images/animatedBG.gif)] bg-cover bg-no-repeat ">
 
         <div class="flex gap-5 w-2/3 p-2">
             <div

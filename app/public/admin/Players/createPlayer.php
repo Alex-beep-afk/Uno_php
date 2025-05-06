@@ -86,20 +86,20 @@ if (!empty($_POST)) {
     <?php require_once '/app/public/Layout/_messages.php'; ?>
 
     <main
-        class="h-full flex justify-center bg-[url(/assets/images/animated-bg-create-player.gif)] bg-cover bg-no-repeat">
+        class="min-h-full flex justify-center bg-[url(/assets/images/animated-bg-create-player.gif)] bg-cover bg-no-repeat">
         <form
-            class="flex flex-col items-center justify-center gap-2 p-2 border-2 border-slate-600 bg-slate-100/20 backdrop-blur bg-bottom w-1/2 western m-10"
+            class="flex flex-col items-center justify-center gap-2 p-2 border-2 border-red-600 bg-slate-100/20 backdrop-blur rounded-lg bg-bottom w-1/2 western m-10"
             action="" method="post" enctype="multipart/form-data">
             <div class="flex gap-2">
-                <div class="flex flex-col items-center">
-                    <label for="pseudo">Pseudo</label>
+                <div class="flex flex-col items-center gap-2">
+                    <label class="" for="pseudo">Pseudo</label>
                     <input class="border-2 rounded-md" type="text" name="pseudo" id="pseudo" required>
 
                     <label for="password">Password</label>
                     <input class="border-2 rounded-md" type="password" name="password" id="password" required>
                 </div>
 
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center gap-2">
                     <label for="nom">Nom</label>
                     <input class="border-2 rounded-md" type="text" name="nom" id="nom">
 
@@ -109,7 +109,7 @@ if (!empty($_POST)) {
 
             </div>
 
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center gap-2">
                 <label for="scoreTotal">Score total</label>
                 <input class="border-2 rounded-md w-full" type="number" name="scoreTotal" id="scoreTotal">
 
@@ -119,11 +119,12 @@ if (!empty($_POST)) {
 
 
 
-            <div class="flex w-1/2 justify-center items-center gap-2">
-                <button class="my-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western p-2 w-full"
-                    type="submit">Créer un joueur</button>
-                <a class="my-5 border-4 border-red-600 bg-white rounded-lg hover:bg-yellow-200 western text-center p-2 w-full"
-                    href="/admin/index.php">Retour</a>
+            <div class="flex w-1/2 justify-center items-center gap-1">
+                <button class="my-5 border-4 border-red-600 bg-white rounded-lg hover:bg-green-200 western p-2"
+                    type="submit"><img class="w-10 h-10" src="/assets/images/icons/icon-add.png" alt=""></button>
+                <a class="my-5 border-4 border-red-600 bg-white rounded-lg hover:bg-red-200 western text-center p-2"
+                    href="/admin/index.php"><img class="w-10 h-10" src="/assets/images/icons/icon-return.png"
+                        alt=""></a>
             </div>
 
 

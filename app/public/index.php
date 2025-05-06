@@ -21,13 +21,12 @@ $users = findAllUsersByScore();
     <title>Uno Games</title>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body
+    class="min-h-screen flex flex-col bg-yellow-100 bg-[url(/assets/images/bg-pokemon-uno.webp)] bg-cover bg-center bg-no-repeat bg-fixed">
     <?php require_once '/app/public/Layout/_header.php'; ?>
 
-    <main
-        class="flex flex-col bg-yellow-100 items-center justify-center flex-grow bg-yellow-100  bg-auto bg-bottom py-5">
-        <div
-            class="flex flex-wrap gap-5 items-center justify-center w-full flex-grow bg-[url(/assets/images/BackgroundElo.png)] bg-cover bg-bottom bg-no-repeat">
+    <main class="flex flex-col items-center justify-center min-h-full my-auto">
+        <div class="flex flex-wrap gap-5 items-center justify-center w-full h-full ">
             <?php foreach ($users as $index => $user): ?>
                 <?php if ($user['isAdmin'] == 0): ?>
                     <?php if ($index == 0): ?>
@@ -68,7 +67,7 @@ $users = findAllUsersByScore();
             <?php foreach ($users as $index => $user): ?>
                 <?php if ($user['isAdmin'] == 0 && $index > 2): ?>
                     <div
-                        class="flex items-center gap-2 bg-white backdrop-blur-lg border-2 border-red-700/50 rounded-lg p-5 shadow-lg hover:scale-150 hover:z-10  transition-all duration-300">
+                        class="hidden-player flex items-center gap-2 bg-white backdrop-blur-lg border-2 border-red-700/50 rounded-lg p-5 shadow-lg hover:scale-150 hover:z-10  transition-all duration-300 scale-0">
                         <div>
                             <img class="w-32 h-32 rounded-full border-4 border-red-700/70 hover:scale-110"
                                 src="admin/Players/avatars/<?= $user['imgProfil'] ?>" alt="Avatar de <?= $user['pseudo'] ?>">
