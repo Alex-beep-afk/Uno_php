@@ -31,7 +31,7 @@ $users = findAllUsersByScore();
                 <?php if ($user['isAdmin'] == 0): ?>
                     <?php if ($index == 0): ?>
                         <div
-                            class="flex flex-col items-center bg-yellow-200/50 backdrop-blur-lg border-2 border-yellow-300/50 rounded-lg p-5 shadow-lg scale-110 z-0 hover:z-10 hover:scale-150  order-2 transition-all duration-300">
+                            class="flex flex-col items-center bg-yellow-200/50 backdrop-blur-lg border-2 border-yellow-300/50 rounded-lg p-5 shadow-lg scale-110 z-0 hover:z-10 hover:scale-150  order-2 transition-all duration-300 animate-[Wobble_2s_ease-in-out_infinite]">
                             <img class="w-32 h-32 rounded-full border-4 border-yellow-300/50 hover:scale-110"
                                 src="admin/Players/avatars/<?= $user['imgProfil'] ?>" alt="Avatar de <?= $user['pseudo'] ?>">
                             <h2 class="western text-yellow-400 font-bold text-2xl">1er 👑</h2>
@@ -51,7 +51,7 @@ $users = findAllUsersByScore();
                         </div>
                     <?php elseif ($index == 2): ?>
                         <div
-                            class="flex flex-col items-center bg-amber-600/50 backdrop-blur-lg border-2 border-amber-600/50 rounded-lg p-5 shadow-lg order-3 hover:z-10 hover:scale-150  transition-all duration-300">
+                            class="flex flex-col items-center bg-amber-600/50 backdrop-blur-lg border-2 border-amber-600/50 rounded-lg p-5 shadow-lg order-3 hover:z-10 hover:scale-150  transition-all duration-300 ">
                             <img class="w-32 h-32 rounded-full border-4 border-amber-600/50 hover:scale-110 "
                                 src="admin/Players/avatars/<?= $user['imgProfil'] ?>" alt="Avatar de <?= $user['pseudo'] ?>">
                             <h2 class="western text-amber-600 font-bold text-l">3ème🥉</h2>
@@ -63,11 +63,15 @@ $users = findAllUsersByScore();
                 <?php endif; ?>
             <?php endforeach; ?>
         </div>
-        <div class="grid grid-cols-3 gap-5 items-center justify-center hidden mt-10 hidden-container">
+        <div
+            class="hidden grid grid-cols-3 gap-5 items-center justify-center transition-all scale-0 duration-300 mt-10 hidden-container">
+            <div
+                class="hidden delay-50 delay-100 delay-150 delay-200 delay-250 delay-300 delay-350 delay-400 delay-450 delay-500 delay-550 delay-600 delay-650">
+            </div>
             <?php foreach ($users as $index => $user): ?>
                 <?php if ($user['isAdmin'] == 0 && $index > 2): ?>
                     <div
-                        class="hidden-player flex items-center gap-2 bg-white backdrop-blur-lg border-2 border-red-700/50 rounded-lg p-5 shadow-lg hover:scale-150 hover:z-10  transition-all duration-300 scale-0">
+                        class="hidden-player flex items-center gap-2 bg-white backdrop-blur-lg border-2 border-red-700/50 rounded-lg p-5 shadow-lg hover:scale-150 hover:z-10 scale-0">
                         <div>
                             <img class="w-32 h-32 rounded-full border-4 border-red-700/70 hover:scale-110"
                                 src="admin/Players/avatars/<?= $user['imgProfil'] ?>" alt="Avatar de <?= $user['pseudo'] ?>">
