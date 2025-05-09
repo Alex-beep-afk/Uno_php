@@ -28,6 +28,7 @@ $_SESSION['token_csrf'] = bin2hex(random_bytes(32));
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/assets/styles/main.css">
     <script src="/assets/scripts/scoresModify.js" defer></script>
+    <script src="/assets/scripts/slideInEntry.js" defer></script>
 </head>
 
 <body class="min-h-screen flex flex-col">
@@ -35,12 +36,17 @@ $_SESSION['token_csrf'] = bin2hex(random_bytes(32));
     <?php require_once '/app/public/Layout/_messages.php'; ?>
     <main class="min-h-full my-auto bg-[url(/assets/images/bg-pokemon.webp)] bg-cover bg-fixed bg-center bg-no-repeat">
         <ul class="mt-2 flex flex-col items-center western">
-            <?php foreach ($users as $user): ?>
-                <li class="w-5/6 border-1 flex justify-between items-center p-2 mb-2 rounded-lg 
-                bg-slate-200/50 border-red-400 backdrop-blur-sm">
+            <?php foreach ($users as $index => $user): ?>
+                <li class="w-5/6 border-1 flex justify-between items-center p-5 mb-2 rounded-lg 
+                bg-slate-200/50 border-red-400 backdrop-blur-sm player-entry">
                     <div class="flex items-center gap-2">
-                        <img src="/admin/Players/avatars/<?= $user['imgProfil'] ?>" alt="Avatar de <?= $user['pseudo'] ?>"
-                            class="w-20 h-20 rounded-full border-4 border-red-600 hover:scale-110 bg-white ">
+                        <span class="flex items-center gap-5">
+                            <h2> <?= $index + 1 ?> </h2>
+                            <img src="/admin/Players/avatars/<?= $user['imgProfil'] ?>"
+                                alt="Avatar de <?= $user['pseudo'] ?>"
+                                class="w-20 h-20 rounded-full border-4 border-red-600 hover:scale-110 bg-white ">
+                        </span>
+
                         <span class="flex flex-col items-center">
                             <h2><?= $user['pseudo'] ?></h2>
                             <h3>(<?= $user['prenom'] . ' ' . $user['nom'] ?>)</h3>
